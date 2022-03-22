@@ -1,6 +1,6 @@
 export default function initAnimationOnScroll() {
    const sections = document.querySelectorAll('[data-anime="scroll"]')
-   const windowMetade = window.innerHeight * 0.7
+   const windowMetade = window.innerHeight * 0.8
 
    if (sections.length) {
       function animationOnScroll() {

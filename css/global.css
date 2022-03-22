@@ -45,27 +45,29 @@ a {
 
 /* menu */
 .menu {
-   grid-column: 3 / -1;
-   margin: 2rem 0;
+   grid-column: 3 / 5;
+   margin-top: 2rem;
+   margin-bottom: 2rem;
    background: #ffbb55;
 }
 
 .menu ul {
    display: flex;
    flex-wrap: wrap;
-   gap: 10px;
    padding: 10px;
 }
 
-.menu a {
+.menu li a {
    display: block;
+   padding: 10px;
+   margin-right: 10px;
    color: #222222;
+   text-decoration: none;
    font-family: "IBM Plex Mono", monospace;
    font-size: 0.875rem;
+   letter-spacing: 0.1rem;
    font-weight: 700;
    text-transform: uppercase;
-   letter-spacing: 0.1rem;
-   padding: 15px;
 }
 
 /* animais */
@@ -175,6 +177,28 @@ a {
    height: 10px;
    margin-right: 10px;
    background: #ffbb55;
+}
+
+.dados .bitcoin {
+   background: #3f4;
+   padding: 0.2rem 0.5rem;
+   font-weight: bold;
+   border-radius: 2px;
+}
+
+.dados .status::after {
+   display: inline-block;
+   content: "";
+   width: 6px;
+   height: 6px;
+   background: #e54;
+   border-radius: 50%;
+   margin-left: 4px;
+   border: 2px solid #222222;
+}
+
+.dados .status.aberto::after {
+   background: #3f4;
 }
 
 /* footer */
