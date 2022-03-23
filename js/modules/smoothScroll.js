@@ -3,14 +3,14 @@ export default function initSmoothScroll() {
 
    function smoothScroll(event) {
       event.preventDefault()
-      
+
       const href = this.getAttribute("href")
       const section = document.querySelector(href)
       const sectionTop = section.offsetTop
 
       window.scrollTo({
          top: sectionTop,
-         behavior: "smooth"
+         behavior: "smooth",
       })
 
       // forma alternativa, não suportado para iOS até o presente momento (03/22)
@@ -20,7 +20,7 @@ export default function initSmoothScroll() {
       // })
    }
 
-   links.forEach(link => {
+   links.forEach((link) => {
       link.addEventListener("click", smoothScroll)
    })
 }
