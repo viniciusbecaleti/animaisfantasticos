@@ -1,26 +1,36 @@
-export default function initSmoothScroll() {
-   const links = document.querySelectorAll('[data-menu="suave"] a[href^="#"]')
-
-   function smoothScroll(event) {
-      event.preventDefault()
-
-      const href = this.getAttribute("href")
-      const section = document.querySelector(href)
-      const sectionTop = section.offsetTop
-
-      window.scrollTo({
-         top: sectionTop,
-         behavior: "smooth",
-      })
-
-      // forma alternativa, não suportado para iOS até o presente momento (03/22)
-      // section.scrollIntoView({
-      //    block: "start",
-      //    behavior: "smooth"
-      // })
+export default class SmoothScroll {
+   constructor(links, options) {
+      this.links = document.querySelectorAll(links)
+      if (options === undefined) {
+         this.options = {
+            block: "start",
+            behavior: "smooth",
+         }
+      } else {
+         this.options = options
+      }
+      this.smoothScroll = this.smoothScroll.bind(this)
    }
 
-   links.forEach((link) => {
-      link.addEventListener("click", smoothScroll)
-   })
+   smoothScroll(event) {
+      event.preventDefault()
+
+      const href = event.currentTarget.getAttribute("href")
+      const section = document.querySelector(href)
+
+      section.scrollIntoView(this.options)
+   }
+
+   addLinkEvent() {
+      this.links.forEach((link) => {
+         link.addEventListener("click", this.smoothScroll)
+      })
+   }
+
+   init() {
+      if (this.links.length) {
+         this.addLinkEvent()
+      }
+      return this
+   }
 }
