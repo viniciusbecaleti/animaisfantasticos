@@ -137,6 +137,7 @@ a {
    font-family: "IBM Plex Mono", monospace;
    font-weight: 700;
    margin: 2rem 0 0.5rem 0;
+   cursor: pointer;
 }
 
 .faq-lista dt::before {
